@@ -5,3 +5,11 @@
 ```
 npm install express --save
 ```
+## 2.启动一个服务
+```
+const express = require('express');
+const app = express();
+const port = 3001;
+// 可以使用127.0.0.1或localhost
+app.listen(port, "10.6.35.14", () => console.log(`服务已经启动在端口：${port}!`));
+```
