@@ -13,3 +13,26 @@ const port = 3001;
 // 可以使用127.0.0.1或localhost
 app.listen(port, "10.6.35.14", () => console.log(`服务已经启动在端口：${port}!`));
 ```
+## 3.建立数据库连接与操作数据库
+  + 下载mysql
+  ```
+  npm install mysql --save
+  ```
+  + 使用
+  ```
+  //连接数据库
+  var db = mysql.createConnection({ host: 'localhost', port: '3306', user: "root", password: '123456', database: 'test_db' });
+db.connect();
+// 查询数据
+db.query('SELECT * from user', function (error, results, fields) {
+    if (error) throw error;
+    console.log('results:', results);
+    app.get('/', (req, res) => res.send(...results))
+});
+//插入数据
+db.query("insert into user(username,password) values('ww','456789')",function (error,rows) {
+    if (error) throw error;
+    console.log('插入成功');
+    console.log(rows);
+})
+  ```
