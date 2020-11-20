@@ -1,4 +1,4 @@
-### 1.父、子(Form表单组件)组件都是函数是组件，怎么通过Form表单提供的wrappedComponentRef获取表单的值
+### 1.父、子(Form表单组件)组件都是函数组件，怎么通过Form表单提供的wrappedComponentRef获取表单的值
   step1: 父组件
   ```
   // 引入useRef
