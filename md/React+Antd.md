@@ -32,3 +32,9 @@
    }
    
   ```
+  step3: 获取数据
+  ```
+  
+  // 在父组件
+   const fields = getFormValue.current.formFields;
+  ```
