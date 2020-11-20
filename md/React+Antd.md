@@ -37,4 +37,5 @@
   
   // 在父组件
    const fields = getFormValue.current.formFields;
+   
   ```
