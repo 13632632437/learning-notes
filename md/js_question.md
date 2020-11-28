@@ -1,5 +1,5 @@
 # javaScript学习笔记
-## JavaScript函数注释规范
+## 1.JavaScript函数注释规范
    + @param 	@param {类型} 参数名 描述
    + @return 	@return {类型} 描述
    + @author 	@author 作者
@@ -32,3 +32,44 @@
    + @uses: 使用
    + @var: 变量
    + @copyright: 版权声明
+## 2.javaScript下载文件/导出文件
+   + 使用a标签
+```
+       downloadModel({}, 'blob').then(res => {
+      console.log('下载Excel', res);
+      const blob = new Blob([res], { type: 'application/vnd.ms-excel' });
+      var a = document.createElement('a');
+      a.download = '下载文件的名字';
+      a.href = URL.createObjectURL(blob);
+      document.body.appendChild(a);
+      var evt = document.createEvent("MouseEvents");
+      evt.initEvent("click", false, false);
+      a.dispatchEvent(evt);
+      document.body.removeChild(a);
+    })
+```
+   + 使用iframe
+```
+    // 下载文件
+    if (isDownloadFile) {
+        let iframe = document.createElement("iframe");
+        iframe.src = `${url}?${qs.stringify(reqParams)}`;
+        iframe.style.display = "none";
+
+        let timer = setInterval(function () {
+            let iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+            if (
+                iframeDoc.readyState == "complete" ||
+                iframeDoc.readyState == "interactive"
+            ) {
+                document.body.removeChild(iframe);
+                clearInterval(timer);
+                return;
+            }
+        }, 4000);
+
+        document.body.appendChild(iframe);
+        return;
+    }
+```
+   
