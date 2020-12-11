@@ -76,3 +76,17 @@
 ```
 let reg = /^(0|([1-9]\d*))(\.\d+)?$/;
 ```
+## 4.验证一个字符串能否被JSON.parse()解析
+```
+   function isJSON(str) {
+        if (typeof str == 'string') {
+            try {
+                var obj = JSON.parse(str);
+                console.log('转换成功：' + obj);
+                return true;
+            } catch (e) {
+                return false;
+            }
+        }
+    }
+```
