@@ -94,3 +94,21 @@ let reg = /^(0|([1-9]\d*))(\.\d+)?$/;
 ```
 str = str.replace(/(^、)|(、$)/,'')
 ```
+## 6.数据类型检测
+   + typeof
+      1. typeof 1             // Number
+      2. typeof true          // Boolean
+      3. typeof "str"         // String
+      4. typeof undefined     // undefined
+      5. typeof null          // object
+      6. typeof function (){} // function
+      7. typeof [1,2,3]       // object
+      - 缺点：当类型为null、object和array时都会返回object，所以不能区分这三类
+   + instanceof
+      1. 1 instanceof Number              // false
+      2. "str" instanceof String          // false
+      3. true instanceof Boolean          // false
+      4. function(){} instanceof Function // true
+      5. [1,2,3] instancof Array          // true
+      6. {} instancof Objec               // true
+      - 缺点：不能检测number、string和boolean
